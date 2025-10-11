@@ -1,135 +1,115 @@
 # 🧪 Swag Labs Automation Project
 
-This project automates the functional testing of the **Swag Labs** e-commerce website using **Selenium WebDriver** with **Java** and **TestNG**.  
-It validates different user flows such as login, product selection, cart management, checkout, and logout.
+## 📋 Overview
+This project automates end-to-end testing for the **Swag Labs** web application using **Selenium WebDriver**, **TestNG**, and **Java**.  
+The project follows the **Page Object Model (POM)** design pattern for better maintainability and scalability.  
+Reports are generated using **Allure** and the project is integrated with **Jenkins** for CI/CD.
 
 ---
 
-## 📋 Table of Contents
-- [Project Overview](#project-overview)
-- [Project Structure](#project-structure)
-- [Installation & Setup](#installation--setup)
-- [How to Run Tests](#how-to-run-tests)
-- [Test Reports (Allure)](#test-reports-allure)
-- [Jenkins Integration](#jenkins-integration)
-- [Technologies Used](#technologies-used)
-- [Author](#author)
-- [Future Improvements](#future-improvements)
+## 🧰 Tools & Technologies
+- **Java:** Core language used for writing test automation scripts.  
+- **Selenium WebDriver:** Browser automation for web application testing.  
+- **TestNG:** Test case structuring, execution, and reporting.  
+- **Maven:** Dependency management and build automation.  
+- **Log4j:** Centralized logging for better debugging and analysis.  
+- **Allure Reports:** Rich HTML reports with execution insights.  
+- **Faker:** Generate fake data for testing purposes.  
+- **Apache POI:** Read and write Excel files for data-driven testing.  
+- **JSON:** Used for test data and configuration.  
+- **Jenkins / GitHub Actions:** CI/CD integration for automated testing and report generation.  
 
 ---
 
-## 🧾 Project Overview
-The main goal of this project is to provide an automated regression suite for the **Swag Labs** website to ensure all major functionalities are working as expected after each release.
+## 🧩 Project Structure
 
-The framework is designed using the **Page Object Model (POM)** structure and follows best practices for code reusability and maintainability.
-
----
-
-## 📁 Project Structure
 ```
-Swag-Labs-Automation-Project
-│
-├── src
-│   ├── main/java
-│   │   └── utilities/            # Helper classes
-│   │
-│   └── test/java
-│       ├── pages/                # Page Object Model classes
-│       ├── tests/                # Test classes
-│       └── data/                 # Test data files
-│
-├── pom.xml                       # Maven configuration file
-├── testng.xml                    # TestNG suite configuration
-├── README.md
-└── allure-results/               # Allure results folder (after test execution)
+src
+ ┣ java
+ ┃ ┣ DriverFactory
+ ┃ ┃ ┗ DriverFactory.java
+ ┃ ┣ Pages
+ ┃ ┃ ┣ P01_LoginPage.java
+ ┃ ┃ ┣ P02_LandingPage.java
+ ┃ ┃ ┣ P03_CartPage.java
+ ┃ ┃ ┣ P04_CheckoutPage.java
+ ┃ ┃ ┣ P05_OverviewPage.java
+ ┃ ┃ ┗ P06_FinishingOrderPage.java
+ ┃ ┣ Utilities
+ ┃ ┃ ┣ DataUtils.java
+ ┃ ┃ ┣ LogsUtils.java
+ ┃ ┃ ┗ Utility.java
+ ┃
+ ┣ test
+ ┃ ┣ Listeners
+ ┃ ┃ ┣ InvokedMethodListenerClass.java
+ ┃ ┃ ┗ ITestResultListenerClass.java
+ ┃ ┣ Tests
+ ┃ ┃ ┣ TC01_LoginTest.java
+ ┃ ┃ ┣ TC02_LandingTest.java
+ ┃ ┃ ┣ TC03_CartTest.java
+ ┃ ┃ ┣ TC04_CheckoutTest.java
+ ┃ ┃ ┣ TC05_OverviewTest.java
+ ┃ ┃ ┗ TC06_FinishingOrderTest.java
+ ┗ resources
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## 🚀 How to Run Tests
 
-1. **Clone the repository**
+1. Clone the repository  
    ```bash
-   git clone https://github.com/your-username/Swag-Labs-Automation-Project.git
+   git clone https://github.com/<your-username>/Swag-Labs-Automation-Project.git
    ```
 
-2. **Open the project** in your preferred IDE (IntelliJ IDEA / Eclipse).
-
-3. **Install dependencies** using Maven:
+2. Navigate to the project directory  
    ```bash
-   mvn clean install
+   cd Swag-Labs-Automation-Project
    ```
 
-4. **Ensure Java and Maven are installed:**
+3. Run tests using Maven  
    ```bash
-   java -version
-   mvn -version
+   mvn clean test
+   ```
+
+4. Generate Allure Report  
+   ```bash
+   allure serve allure-results
    ```
 
 ---
 
-## ▶️ How to Run Tests
-
-### Run all tests:
-```bash
-mvn clean test
-```
-
-### Run specific TestNG suite:
-```bash
-mvn test -DsuiteXmlFile=testng.xml
-```
-
-### Run from IDE:
-- Open `testng.xml`
-- Right-click → **Run 'testng.xml'**
+## 🧩 Prerequisites
+Before running the project, make sure you have:
+- **Java Development Kit (JDK)** installed  
+- **IDE** (e.g., IntelliJ IDEA, Eclipse)  
+- **Maven** installed  
+- **Allure Commandline** installed (for viewing reports)  
 
 ---
 
-## 📊 Test Reports (Allure)
-
-After running the tests, Allure results will be generated in:
+## 🧾 Test Reporting
+After test execution, Allure will generate HTML reports located in:
 ```
 /target/allure-results
 ```
-
-To view the report:
-```bash
+To view reports locally:
+```
 allure serve target/allure-results
 ```
 
 ---
 
-## 🤖 Jenkins Integration
-
-This project is configured to run in **Jenkins** as part of a CI/CD pipeline.
-
-Typical Jenkins configuration:
-1. **Source Code Management:** Git  
-   - Repository URL: `https://github.com/your-username/Swag-Labs-Automation-Project.git`
-2. **Build Step:**
-   ```bash
-   mvn clean test
-   ```
-3. **Post-build Actions:**
-   - Generate **Allure Report**
-   - Archive test results
-
----
-
-## 💻 Technologies Used
-- **Java**
-- **Selenium WebDriver**
-- **TestNG**
-- **Maven**
-- **Allure Report**
-- **Jenkins (CI/CD)**
+## 🧱 Continuous Integration (Jenkins)
+This project can be integrated with **Jenkins** using a `Pipeline` or `Freestyle` job.  
+It runs automatically on each push or pull request and generates **Allure reports** for each build.
 
 ---
 
 ## 👤 Author
 **Mo'men Gouda**  
-Software Tester (Manual & Automation Testing)  
+Junior Quality Control Engineer 
 🔗 [LinkedIn](https://www.linkedin.com/in/mo-men-gouda-0b060a284/)
 
 ---
