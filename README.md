@@ -15,7 +15,6 @@ Reports are generated using **Allure** and the project is integrated with **Jenk
 - **Log4j:** Centralized logging for better debugging and analysis.  
 - **Allure Reports:** Rich HTML reports with execution insights.  
 - **Faker:** Generate fake data for testing purposes.  
-- **Apache POI:** Read and write Excel files for data-driven testing.  
 - **JSON:** Used for test data and configuration.  
 - **Jenkins / GitHub Actions:** CI/CD integration for automated testing and report generation.  
 
