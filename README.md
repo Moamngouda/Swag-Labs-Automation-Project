@@ -130,14 +130,7 @@ Typical Jenkins configuration:
 ## 👤 Author
 **Mo'men Gouda**  
 Software Tester (Manual & Automation Testing)  
-🔗 [LinkedIn](https://linkedin.com/in/moamn-gouda)
+🔗 [LinkedIn](https://www.linkedin.com/in/mo-men-gouda-0b060a284/)
 
 ---
 
-## 🚀 Future Improvements
-- Add parallel test execution support.
-- Integrate API testing.
-- Include cross-browser testing using Selenium Grid.
-- Add Docker support for containerized execution.
-
----
